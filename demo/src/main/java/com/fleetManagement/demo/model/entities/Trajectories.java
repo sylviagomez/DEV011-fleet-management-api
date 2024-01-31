@@ -1,7 +1,9 @@
 package com.fleetManagement.demo.model.entities;
 
-import java.util.Date;
+import jakarta.persistence.*;
 
+import java.util.Date;
+@Entity
 public class Trajectories {
     public Integer getId() {
         return id;
@@ -42,11 +44,21 @@ public class Trajectories {
     public void setLongitude(double longitude) {
         this.longitude = longitude;
     }
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer id;
+    @Column(name = "id_taxi")
     private Integer id_taxi;
+    @Column(name = "date")
     private Date date;
+    @Column(name = "latitude")
     private double latitude;
+    @Column(name = "longitude")
     private double longitude;
+
+    @ManyToOne
+    @JoinColumn(name = "taxi_id")
+    private Taxi taxi;
+
 
 }
