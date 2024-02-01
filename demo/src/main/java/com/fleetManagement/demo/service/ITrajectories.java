@@ -1,11 +1,12 @@
 package com.fleetManagement.demo.service;
 
-import com.fleetManagement.demo.model.entities.Taxi;
 import com.fleetManagement.demo.model.entities.Trajectories;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface ITrajectories {
     List<Trajectories> findAll();
-    List<Trajectories> findById (Integer taxi_id);
+    Optional<Trajectories> findById (Integer taxi_id);
 }
